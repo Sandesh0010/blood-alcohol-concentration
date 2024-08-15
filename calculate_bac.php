@@ -11,7 +11,7 @@ if ($unit == "kg") {
 }
 
 
-if($gender=="Male"){
+if($gender=="male"){
     $gender_constant=0.73;
 }
 else{
@@ -20,15 +20,20 @@ else{
 
 $alcohol_consumed=$drinks*$alcohol_content;
 
-//echo "$alcohol_consumed"."grams";
+ echo "alcohol consumed=$alcohol_consumed<br>";
 
 
 $BAC = (($alcohol_consumed * 5.14) / ($weight * $gender_constant)) - 0.015 * $time_elapsed;
 
-// echo"$BAC";
+$BAC_roundedoff=round($BAC,2);
 
 
-if ($BAC<0.08){
+if($BAC_roundedoff<0){
+    $BAC_roundedoff=0;
+    $result="Safe to Drive";
+}
+
+if ($BAC_roundedoff<0.08){
 
    $result="Safe to Drive";
 }
@@ -36,5 +41,9 @@ else{
 
     $result="Not Safe to Drive";
 }
+
+echo"BAC=$BAC_roundedoff%";
+
+echo"<br>$result";
 
 ?>
