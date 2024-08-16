@@ -48,7 +48,6 @@
     <div>safe to drive </div> -->
   
       <?php 
-      if ($_SERVER['REQUEST_METHOD'] == 'GET'){
 $weight = $_GET['weight'];
 $unit = $_GET['unit'];
 $gender = $_GET['gender'];
@@ -97,7 +96,7 @@ else{
 // echo"<br>$result";
 echo"<div> Your Blood Concentration is: <span>  $BAC_roundedoff %</span></div>";
 echo"<div> $result</div>";
-      }
+      
     
 ?>
 
